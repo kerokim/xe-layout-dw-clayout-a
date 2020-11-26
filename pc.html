@@ -133,7 +133,7 @@ li.first_li:hover div,
 					<a href="{getSiteUrl()}" cond="!$layout_info->logo_image" class="text_logo" title="Door of Web"><img class="logo" src="img/logo.png" border="0" alt="Door of Web"></a>
 				</h1>
 				<div class="gnb">
-					<ul id="menu" class="main_menu clearBoth {$layout_info->menu_align}">
+					<ul id="menu" class="main_menu clearBoth {$layout_info->menu_align} {$layout_info->expand_menu}">
 						{@$idx=1}
 						<li loop="$main_menu->list=>$key1,$val1" cond="$val1['link']" name="banner{$idx}" class="active highlight first_li dw_width{$layout_info->menu_width}"|cond="$val1['selected']"  class="first_li dw_width{$layout_info->menu_width}"|cond="!$val1['selected']">
 							<a class="first_a H_height Acolor" href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'"><span class="first_span">{$val1['text']}</span></a>

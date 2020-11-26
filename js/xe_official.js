@@ -12,26 +12,35 @@ jQuery(function($){
 	var lastEvent = null;
 	var div_Height=sshhItem.outerHeight();
 	var div_Height = div_Height + 79;
-	function sMenuSlide(){
-		
-		var t = $(this);
-		t.next().children().find('li').removeClass('highlight');
-		sHeader.addClass('act_header');
-		$('div.gnb').animate({
-			height: div_Height
-		  }, 300 );
-		
-	}
-	aItem.mouseover(sMenuSlide).focus(sMenuSlide);
 
-	function fadeOut_menu(){
-		sHeader.removeClass('act_header');
-		$('div.gnb').stop(true,true).animate({
-			height: "79"
-		  }, 30 );
+	if(!sMenu.hasClass('no_expand')) {
+
+		function sMenuSlide(){
+			
+			var t = $(this);
+			t.next().children().find('li').removeClass('highlight');
+			sHeader.addClass('act_header');
+			$('div.gnb').animate({
+				height: div_Height
+			}, 300 );
+			
 		}
-	$('.wrap_menu').mouseleave(fadeOut_menu);
-	LastLi.focusout(fadeOut_menu);
+		
+		aItem.mouseover(sMenuSlide).focus(sMenuSlide);
+
+		function fadeOut_menu(){
+
+			sHeader.removeClass('act_header');
+			$('div.gnb').stop(true,true).animate({
+				height: "79"
+			}, 30 );
+
+		}
+
+		$('.wrap_menu').mouseleave(fadeOut_menu);
+		LastLi.focusout(fadeOut_menu);
+
+	}
 
 	function hideMenuToggle(){
 		var thisBtn = $(this);
